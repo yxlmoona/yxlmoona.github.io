@@ -1,0 +1,6 @@
+.cocktail-imgs img{
+  display: none;
+}
+.cocktail-imgs img:first-of-type{
+  display: block;
+}
