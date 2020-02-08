@@ -3,8 +3,6 @@
 $(() => {
   $('#search').on('click', () => {
     $('.cocktail-imgs').empty()
-    let currentImgIndex = 0
-
     const userInput = $('input').val()
     $.ajax({
         url:`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
@@ -19,9 +17,10 @@ $(() => {
               const $h3 = $('<h3>').text(i.strDrink)
               $h3.appendTo($div)
             })//close forEach
-            /////////////////next function/////////////////
+            /////////////////next function/////////////
             let highestIndex = $('.cocktail-imgs').children().length - 1
             console.log(highestIndex);
+            let currentImgIndex = 0
             $('.next').on('click', () => {
               $('.cocktail-imgs').children().eq(currentImgIndex).css('display','none')
               if(currentImgIndex < highestIndex){
@@ -31,6 +30,15 @@ $(() => {
               }
               $('.cocktail-imgs').children().eq(currentImgIndex).css('display','block')
             })// close for click next function
+            $('.previous').on('click', () => {
+              $('.cocktail-imgs').children().eq(currentImgIndex).css('display','none')
+              if(currentImgIndex > 0){
+                currentImgIndex --;
+              }else{
+                currentImgIndex = highestIndex;
+              }
+              $('.cocktail-imgs').children().eq(currentImgIndex).css('display','block')
+            })//close for click previous function
         },
         ()=>{
             console.log('bad request');

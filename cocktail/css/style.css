@@ -1,7 +1,10 @@
 .search-imgs  {
   display: none;
   width: 80%;
-  height:200px;
+
+}
+.search-imgs img{
+  width: 50%;
 }
 
 .search-imgs:first-of-type{
