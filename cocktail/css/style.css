@@ -1,6 +1,23 @@
-.cocktail-imgs img{
+.search-imgs  {
   display: none;
+  width: 80%;
+  height:200px;
 }
-.cocktail-imgs img:first-of-type{
+
+.search-imgs:first-of-type{
   display: block;
+}
+
+.cocktail-container{
+  display: flex;
+  justify-content: space-around;
+}
+.carousel-button {
+  align-self: center;
+  background: #f2cd99;
+  color: #888;
+  padding: 10px;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 1px 1px #fa8d8e;
 }
