@@ -45,38 +45,55 @@ $(() => {
         url:`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
     }).then(
         (data)=>{
+          let currentImgIndex = 0
+          const EventHandlers = {
+            onClickFlipNext: () => {
+              $('.cocktail-imgs').children().eq(currentImgIndex).css('display','none')
+              if(currentImgIndex < highestIndex){
+                currentImgIndex ++;
+              }else{
+                currentImgIndex = 0;
+              }
+              $('.cocktail-imgs').children().eq(currentImgIndex).css('display','block')
+            },
+            onClickFlipPrevious: () => {
+              $('.cocktail-imgs').children().eq(currentImgIndex).css('display','none')
+              if(currentImgIndex > 0){
+                currentImgIndex --;
+              }else{
+                currentImgIndex = highestIndex;
+              }
+              $('.cocktail-imgs').children().eq(currentImgIndex).css('display','block')
+            },
+
+          }//close for EventHandlers
             data.drinks.forEach((i) => {
+                const showInstruction = () => {
+                // console.log(i);
+                $('h6').empty()
+                const $h1 = $('<h6>').text(i.strIngredient1)
+                const $h2 = $('<h6>').text(i.strIngredient2)
+                const $h3 = $('<h6>').text(i.strIngredient3)
+                const $h4 = $('<h6>').text(i.strIngredient4)
+                const $h5 = $('<h6>').text(i.strIngredient5)
+                const $h6 = $('<h6>').text(i.strInstructions)
+                $('.main-ingredient').append($h1,$h2,$h3,$h4,$h5)
+                $('.instruction').append($h6)
+              }
               const $div = $('<div>').addClass('search-imgs')
               $div.appendTo($('.cocktail-imgs'))
               const $img = $('<img>').attr('src',i.strDrinkThumb)
               $img.appendTo($div)
               const $h3 = $('<h3>').text(i.strDrink)
               $h3.appendTo($div)
+              $img.on('click', showInstruction)
+
             })//close forEach
-            /////////next and precious/////////////////
             let highestIndex = $('.cocktail-imgs').children().length - 1
             console.log(highestIndex);
-            let currentImgIndex = 0
-            const EventHandlers = {
-              onClickFlipNext: () => {
-                $('.cocktail-imgs').children().eq(currentImgIndex).css('display','none')
-                if(currentImgIndex < highestIndex){
-                  currentImgIndex ++;
-                }else{
-                  currentImgIndex = 0;
-                }
-                $('.cocktail-imgs').children().eq(currentImgIndex).css('display','block')
-              },
-              onClickFlipPrevious: () => {
-                $('.cocktail-imgs').children().eq(currentImgIndex).css('display','none')
-                if(currentImgIndex > 0){
-                  currentImgIndex --;
-                }else{
-                  currentImgIndex = highestIndex;
-                }
-                $('.cocktail-imgs').children().eq(currentImgIndex).css('display','block')
-              }
-            }
+            /////////next and precious/////////////////
+
+            ///////////////////////////////////////////////////
             $('.next').on('click', EventHandlers.onClickFlipNext)/
             $('.previous').on('click', EventHandlers.onClickFlipPrevious )
         },
