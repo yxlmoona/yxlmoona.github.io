@@ -4,6 +4,9 @@ $(() => {
   $('#random').on('click', (event) => {
     $('h6').empty()
     $('.cocktail-imgs').empty()
+    $('.carousel-button').css('display','block')
+    $('h2').css('display','none')
+
 
     $.ajax({
       url:'https://www.thecocktaildb.com/api/json/v1/1/random.php'
@@ -12,6 +15,8 @@ $(() => {
         const EventHandlers = {
 
           showInstruction: () => {
+
+            $('h2').css('display','block')
             const $h1 = $('<h6>').text(data.drinks[0].strIngredient1)
             const $h2 = $('<h6>').text(data.drinks[0].strIngredient2)
             const $h3 = $('<h6>').text(data.drinks[0].strIngredient3)
@@ -39,6 +44,8 @@ $(() => {
     )
   })//close click random
   $('#search').on('click', () => {
+    $('h2').css('display','none')
+    $('.carousel-button').css('display','block')
     $('.cocktail-imgs').empty()
     $('h6').empty()
     $('.next').off()
@@ -75,6 +82,8 @@ $(() => {
             data.drinks.forEach((i) => {
                 const showInstruction = () => {
                 // console.log(i);
+
+                $('h2').css('display','block')
                 $('h6').empty()
                 const $h1 = $('<h6>').text(i.strIngredient1)
                 const $h2 = $('<h6>').text(i.strIngredient2)
