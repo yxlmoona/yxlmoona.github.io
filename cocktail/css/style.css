@@ -1,3 +1,75 @@
+*{
+  /* border: 0.1em solid blue; */
+  margin: 0px;
+  padding:0px;
+  box-sizing: border-box;
+}
+body{
+  margin: auto 10px;
+  background-color: silver;
+}
+header{
+  /* margin: auto 20px; */
+}
+.bj-image{
+  background-image: url('https://images.pexels.com/photos/890475/pexels-photo-890475.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(3px);
+  height: 500px;
+  width: 100%;
+}
+header{
+
+}
+.bj-text{
+  top:20%;
+  left: 30%;
+  position: absolute;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 25px;
+  text-align: center;
+  background-color: rgba(0,0,0, 0.4);
+  z-index: 2;
+}
+button:hover{
+  background-color: grey;
+  color: white;
+  border-color: grey;
+}
+#search{
+  font-family: 'Josefin Sans', sans-serif;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  height: 20px;
+  width: 120px;
+}
+#random{
+
+  font-family: 'Josefin Sans', sans-serif;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  height: 20px;
+  width: 170px;
+}
+
+input{
+
+  border-radius: 4px;
+  font-size: 20px;
+  margin: 10px auto;
+  display: block;
+  width: 50%;
+  height: 40px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+h1{
+  text-transform: capitalize;
+  margin: 30px 20px;
+}
 .search-imgs  {
   display: none;
   width: 80%;
