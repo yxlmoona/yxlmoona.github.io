@@ -4,6 +4,7 @@ $(() => {
   $('#random').on('click', (event) => {
     $('h6').empty()
     $('.cocktail-imgs').empty()
+
     $.ajax({
       url:'https://www.thecocktaildb.com/api/json/v1/1/random.php'
     }).then(
@@ -40,14 +41,18 @@ $(() => {
   $('#search').on('click', () => {
     $('.cocktail-imgs').empty()
     $('h6').empty()
+    $('.next').off()
+    let currentImgIndex = 0
     const userInput = $('input').val()
     $.ajax({
         url:`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
     }).then(
         (data)=>{
-          let currentImgIndex = 0
+
           const EventHandlers = {
+
             onClickFlipNext: () => {
+              console.log(currentImgIndex);
               $('.cocktail-imgs').children().eq(currentImgIndex).css('display','none')
               if(currentImgIndex < highestIndex){
                 currentImgIndex ++;
@@ -91,10 +96,9 @@ $(() => {
             })//close forEach
             let highestIndex = $('.cocktail-imgs').children().length - 1
             console.log(highestIndex);
-            /////////next and precious/////////////////
 
             ///////////////////////////////////////////////////
-            $('.next').on('click', EventHandlers.onClickFlipNext)/
+            $('.next').on('click', EventHandlers.onClickFlipNext)
             $('.previous').on('click', EventHandlers.onClickFlipPrevious )
         },
         ()=>{
