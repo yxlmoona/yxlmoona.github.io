@@ -5,12 +5,10 @@
   box-sizing: border-box;
 }
 body{
-  margin: auto 30px;
+  margin: auto 50px;
   background-color: silver;
 }
-header{
-  /* margin: auto 20px; */
-}
+
 .bj-image{
   background-image: url('https://images.pexels.com/photos/890475/pexels-photo-890475.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
   background-repeat: no-repeat;
@@ -20,9 +18,7 @@ header{
   width: 100%;
 
 }
-header{
 
-}
 .bj-text{
   top:20%;
   left: 30%;
@@ -72,6 +68,7 @@ h1{
   margin: 30px 20px;
 }
 h2{
+  font-size: 25px;
   display: none;
 }
 h3{
@@ -79,17 +76,27 @@ h3{
   font-size: 40px;
   margin: 20px auto;
 }
+h6{
+  font-size: 15px;
+  margin: 30px 50px;
+}
 .cocktail-imgs{
   text-align: center;
   margin: 20px;
-  background-color: grey;
-  border-radius: 60%;
+  background-color: rgba(225,250,205,0.6) ;
+  border-radius: 80%;
 
 }
-.cocktail-container{
-  margin: 10px auto;
-  width: 60%;
+.search-result{
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  margin: 20px auto;
 }
+.instruction{
+  margin: 20px 30px;
+
+}
+
 .search-imgs{
   display: none;
   width: 100%;
@@ -99,7 +106,7 @@ h3{
 }
 .search-imgs img{
   width: 50%;
-  border-radius: 70%;
+  border-radius: 80%;
 }
 
 .search-imgs:first-of-type{
@@ -107,16 +114,39 @@ h3{
 }
 
 .cocktail-container{
+  margin: 10px auto;
+  width: 60%;
   display: flex;
   justify-content: space-around;
 }
 .carousel-button {
   display: none;
-  align-self: center;
-  background: #f2cd99;
-  color: #888;
-  padding: 10px;
-  border-radius: 50%;
-  text-align: center;
-  box-shadow: 5px 5px #fa8d8e;
+}
+.next img{
+  width: 20%;
+  margin: 60% 40%;
+  animation-name: swing1;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+.previous img{
+  width: 20%;
+  margin: 60% 40%;
+  animation-name: swing2;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+@keyframes swing1 {
+  0%{transform: rotate(0deg)}
+  25%{transform: rotate(30deg)}
+  50%{transform: rotate(0deg)}
+  75%{transform: rotate(-30deg)}
+  100%{transform: rotate(0deg)}
+}
+@keyframes swing2 {
+  0%{transform: rotate(0deg)}
+  25%{transform: rotate(-30deg)}
+  50%{transform: rotate(0deg)}
+  75%{transform: rotate(30deg)}
+  100%{transform: rotate(0deg)}
 }
