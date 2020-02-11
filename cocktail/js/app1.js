@@ -40,34 +40,62 @@ data[4] = {
     {correct: false, text: "Absinthe was banned, but any hallucinations were probably caused by its high alcohol content, not its other ingredients."}
   ]
 }
+data[5] = {
+  text:'Which drink did Ernest Hemingway call his favorite?',
+  answers: [
+    {correct: true, text: "daiquiri"},
+    {correct: false, text: "margarita"},
+    {correct: false, text: "mojito"}
+  ]
+}
+
 console.log(data);
+let score = 0;
 $(() => {
   let i = 0
   const showQuiz = () => {
 
-    const $h3 = $('<h3>').text(data[i].text);
-    $h3.appendTo($('.question'))
+    const $questionDiv = $('<div>').addClass('question')
+    const $h3 = $('<h3>').html(data[i].text);
+    $h3.appendTo($questionDiv)
+    $questionDiv.appendTo('.quiz-section')
+    const $answerDiv = $('<div>').addClass('answer-section')
+    $answerDiv.appendTo('.quiz-section')
     for(let x = 0; x<3; x++){
       const $button = $('<button>').text(data[i].answers[x].text)
-      $button.appendTo($('.answers-section'))
+      $button.appendTo($answerDiv)
       $button.on('click', () => {
         $('h4').empty()
+        $('.answer-section>button').css('cursor','not-allowed')
+        $('.answer-section>button').attr('disabled','true')
+        $('.next-button').remove()
+        const $h4 = $('<h4>')
         if(data[i-1].answers[x].correct === true){
-          $h4 = $('<h4>').text('Correct')
+          $h4.text('Correct')
+          score = score + 1;
         }else{
-          $h4 = $('<h4>').text('Incorrect')
+          let b = 0
+          while(data[i-1].answers[b].correct !== true){
+            b++
+          }
+          $h4.text('Incorrect.The correct answer is ' + data[i-1].answers[b].text)
         }
-        $h4.appendTo($('.correct-answer'))
+        const $correctDiv = $('<div>').addClass('correct-answer')
+        $correctDiv.appendTo($('.quiz-section'))
+        $h4.appendTo($correctDiv)
         $nextButton = $('<button>').addClass('next-button').text('Next Question')
-        $nextButton.appendTo($('.correct-answer'))
+        $nextButton.appendTo($correctDiv)
         $nextButton.on('click', showQuiz)
+
+        if(i === data.length){
+          const $h2 = $('<h2>').text('you complete all the questions. Your score:' + score/5*100 + '%')
+          $h2.appendTo('.quiz-section')
+        }
       })
     }
-
-
-    // $nextButton = $('<button>').text('Next QUESTION')
-    // $nextButton.appendTo('.correct-answer')
     return i++;
+
+
   }
   $('#start-button').on('click', showQuiz)
 })//close for on load function
