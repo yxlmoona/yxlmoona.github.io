@@ -1,3 +1,74 @@
+*{
+ /* border: 0.1em solid blue; */
+  margin: 0;
+  box-sizing: border-box;
+}
+
 h1{
+  margin-top: 20px;
   font-family: 'Odibee Sans', cursive;
+  font-size: 40px;
+}
+h3{
+  font-family: 'Odibee Sans', cursive;
+  font-size: 30px;
+  margin-top: 20px;
+}
+h4{
+  margin: auto 30%;
+  font-family: 'Odibee Sans', cursive;
+  font-size: 30px;
+}
+img{
+  width: 50%;
+  margin: 20px auto;
+}
+#start-button{
+  display: block;
+  width: 130px;
+  height: 40px;
+  font-size: 25px;
+  font-family: 'Odibee Sans',cursive;
+  margin: 0px auto;
+}
+body{
+  text-align: center;
+}
+header{
+  text-align: center;
+  /* width: 100%; */
+
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.quiz-section{
+  display: block;
+  margin: 40px auto;
+  border: 0.1em solid black;
+  margin: 20px 25%;
+  background-color: silver;
+
+}
+.answer-section{
+
+  margin: 20px 15%;
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+
+}
+.correct-answer{
+  margin: 20px auto;
+  font-size: 30px;
+}
+.answer-section button, .next-button{
+  border-radius: 10%;
+  font-size: 20px;
+  width:150px;
+  height: 70px;
+  font-family: 'Odibee Sans',cursive;
+  margin-top: 20px;
+}
+.answer-section button:hover, .next-button:hover{
+  font-size: 25px;
 }

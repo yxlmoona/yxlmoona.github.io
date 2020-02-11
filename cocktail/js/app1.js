@@ -65,19 +65,24 @@ $(() => {
       const $button = $('<button>').text(data[i].answers[x].text)
       $button.appendTo($answerDiv)
       $button.on('click', () => {
+
         $('h4').empty()
         $('.answer-section>button').css('cursor','not-allowed')
         $('.answer-section>button').attr('disabled','true')
         $('.next-button').remove()
         const $h4 = $('<h4>')
         if(data[i-1].answers[x].correct === true){
+          $(event.currentTarget).css('border','0.3em solid green')
           $h4.text('Correct')
+          $h4.css('background-color','green')
           score = score + 1;
         }else{
           let b = 0
+          $(event.currentTarget).css('border','0.3em solid red')
           while(data[i-1].answers[b].correct !== true){
             b++
           }
+          $h4.css('background-color','red')
           $h4.text('Incorrect.The correct answer is ' + data[i-1].answers[b].text)
         }
         const $correctDiv = $('<div>').addClass('correct-answer')

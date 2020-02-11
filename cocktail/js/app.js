@@ -59,7 +59,7 @@ $(() => {
           const EventHandlers = {
 
             onClickFlipNext: () => {
-              console.log(currentImgIndex);
+              // console.log(currentImgIndex);
               $('.cocktail-imgs').children().eq(currentImgIndex).css('display','none')
               if(currentImgIndex < highestIndex){
                 currentImgIndex ++;
@@ -81,8 +81,7 @@ $(() => {
           }//close for EventHandlers
             data.drinks.forEach((i) => {
                 const showInstruction = () => {
-                // console.log(i);
-
+                console.log(i);
                 $('h2').css('display','block')
                 $('h6').empty()
                 const $h1 = $('<h6>').text(i.strIngredient1)
@@ -116,7 +115,5 @@ $(() => {
     );//close for ajax
 
   })//close for click serch fun
-
-
 
 })//close for onload
