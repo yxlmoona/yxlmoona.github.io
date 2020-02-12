@@ -11,9 +11,15 @@ h1{
 }
 h2{
   text-transform: capitalize;
-  margin: 20px auto;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-family: 'Odibee Sans', cursive;
   font-size: 40px;
+  background-color: white;
+  height: 350px;
+	width: 550px;
 }
 h3{
   font-family: 'Odibee Sans', cursive;
@@ -37,8 +43,17 @@ img{
   font-family: 'Odibee Sans',cursive;
   margin: 0px auto;
 }
-#redo-button{
+#redo-button {
   display: none;
+  margin: 20px auto;
+}
+.close-button{
+
+  width: 130px;
+  height: 40px;
+  font-size: 25px;
+  font-family: 'Odibee Sans',cursive;
+  margin: 20px auto;
 }
 body{
   text-align: center;
@@ -80,4 +95,16 @@ header{
 }
 .answer-section button:hover, .next-button:hover{
   font-size: 25px;
+}
+.modal{
+  background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	/*This puts our modal in front of the body (which has a default z-index setting of `0`*/
+	overflow: auto;
+	/*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
 }

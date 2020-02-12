@@ -14,21 +14,22 @@ body{
   background-repeat: no-repeat;
   background-position: center;
   filter: blur(3px);
-  height: 600px;
+  height: 650px;
   width: 100%;
+  margin-top: 50px;
 
 }
 
 .bj-text{
-  top:20%;
+  top:30%;
   left: 30%;
   position: absolute;
   color: white;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 25px;
+  font-size: 1.5vw;
   text-align: center;
   background-color: rgba(0,0,0, 0.4);
-  z-index: 2;
+  z-index: 1;
   padding-bottom: 20px;
 
 }
@@ -75,7 +76,7 @@ h1{
   margin: 30px 20px;
 }
 h2{
-  font-size: 25px;
+  font-size: 20px;
   display: none;
 }
 h3{
@@ -90,8 +91,8 @@ h6{
 .cocktail-imgs{
   text-align: center;
   margin: 20px;
-  background-color: rgba(225,250,205,0.6) ;
-  border-radius: 80%;
+  background-color: rgba(240,128,128,0.6) ;
+  border-radius: 90%;
 
 }
 .search-result{
@@ -108,12 +109,13 @@ h6{
   display: none;
   width: 100%;
   padding: 20px;
-
+  animation-name: fade;
+  animation-duration: 1s;
 
 }
 .search-imgs img{
   width: 50%;
-  border-radius: 80%;
+  border-radius: 90%;
 }
 
 .search-imgs:first-of-type{
@@ -135,6 +137,7 @@ h6{
   animation-name: swing1;
   animation-iteration-count: infinite;
   animation-duration: 1s;
+
 }
 .previous img{
   width: 20%;
@@ -142,6 +145,10 @@ h6{
   animation-name: swing2;
   animation-iteration-count: infinite;
   animation-duration: 1s;
+}
+@keyframes fade {
+  0% {opacity: .4}
+ 100%{opacity: 1}
 }
 @keyframes swing1 {
   0%{transform: rotate(0deg)}

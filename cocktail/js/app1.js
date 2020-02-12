@@ -93,9 +93,16 @@ $(() => {
         $nextButton.appendTo($correctDiv)
         $nextButton.on('click', showQuiz)
           if(i === data.length){
-          const $h2 = $('<h2>').text('you complete all the questions. Your score:' + score/6*100 + '%')
-          $h2.appendTo('.quiz-section')
+          const $modal = $('<div>').addClass('modal')
+          .appendTo('.quiz-section')
+          const $h2 = $('<h2>').text('you complete all the questions. Your score:' + Math.floor(score/6*100) + '%')
+          const $closeButton = $('<button>').addClass('close-button').attr('type','button').appendTo($h2).text('close')
+          $('#redo-button').appendTo($h2)
+          $h2.appendTo($modal)
           $nextButton.remove()
+          $closeButton.on('click', () => {
+          $modal.hide()
+          })
         }
       })
     }

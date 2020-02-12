@@ -51,6 +51,7 @@ $(() => {
     $('.next').off()
     let currentImgIndex = 0
     const userInput = $('input').val()
+    $('input').val('')
     $.ajax({
         url:`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
     }).then(
@@ -67,6 +68,7 @@ $(() => {
                 currentImgIndex = 0;
               }
               $('.cocktail-imgs').children().eq(currentImgIndex).css('display','block')
+
             },
             onClickFlipPrevious: () => {
               $('.cocktail-imgs').children().eq(currentImgIndex).css('display','none')
