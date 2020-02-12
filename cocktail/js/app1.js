@@ -37,7 +37,7 @@ data[4] = {
   answers: [
     {correct: false, text: "true"},
     {correct: true, text: "false"},
-    {correct: false, text: "Absinthe was banned, but any hallucinations were probably caused by its high alcohol content, not its other ingredients."}
+    // {correct: false, text: "Absinthe was banned, but any hallucinations were probably caused by its high alcohol content, not its other ingredients."}
   ]
 }
 data[5] = {
@@ -49,26 +49,27 @@ data[5] = {
   ]
 }
 
-console.log(data);
+// console.log(data);
 let score = 0;
+//on load function
 $(() => {
   let i = 0
   const showQuiz = () => {
-
+    $('#redo-button').css('display','block')
+    $('h4').empty()
     const $questionDiv = $('<div>').addClass('question')
     const $h3 = $('<h3>').html(data[i].text);
     $h3.appendTo($questionDiv)
     $questionDiv.appendTo('.quiz-section')
     const $answerDiv = $('<div>').addClass('answer-section')
     $answerDiv.appendTo('.quiz-section')
-    for(let x = 0; x<3; x++){
+    for(let x = 0; x<data[i].answers.length; x++){
       const $button = $('<button>').text(data[i].answers[x].text)
       $button.appendTo($answerDiv)
       $button.on('click', () => {
-
-        $('h4').empty()
-        $('.answer-section>button').css('cursor','not-allowed')
-        $('.answer-section>button').attr('disabled','true')
+        // $('h4').empty()
+        $('.answer-section>button').css('pointer-events','none')
+        $(event.currentTarget).css('pointer-events','visible')
         $('.next-button').remove()
         const $h4 = $('<h4>')
         if(data[i-1].answers[x].correct === true){
@@ -91,10 +92,10 @@ $(() => {
         $nextButton = $('<button>').addClass('next-button').text('Next Question')
         $nextButton.appendTo($correctDiv)
         $nextButton.on('click', showQuiz)
-
-        if(i === data.length){
-          const $h2 = $('<h2>').text('you complete all the questions. Your score:' + score/5*100 + '%')
+          if(i === data.length){
+          const $h2 = $('<h2>').text('you complete all the questions. Your score:' + score/6*100 + '%')
           $h2.appendTo('.quiz-section')
+          $nextButton.remove()
         }
       })
     }
@@ -103,4 +104,7 @@ $(() => {
 
   }
   $('#start-button').on('click', showQuiz)
+  $('#redo-button').on('click', () => {
+    location.reload();
+  })
 })//close for on load function

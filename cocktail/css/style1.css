@@ -9,6 +9,12 @@ h1{
   font-family: 'Odibee Sans', cursive;
   font-size: 40px;
 }
+h2{
+  text-transform: capitalize;
+  margin: 20px auto;
+  font-family: 'Odibee Sans', cursive;
+  font-size: 40px;
+}
 h3{
   font-family: 'Odibee Sans', cursive;
   font-size: 30px;
@@ -23,13 +29,16 @@ img{
   width: 50%;
   margin: 20px auto;
 }
-#start-button{
+#start-button, #redo-button{
   display: block;
   width: 130px;
   height: 40px;
   font-size: 25px;
   font-family: 'Odibee Sans',cursive;
   margin: 0px auto;
+}
+#redo-button{
+  display: none;
 }
 body{
   text-align: center;
