@@ -7,8 +7,13 @@
 h1{
   margin-top: 20px;
   font-family: 'Odibee Sans', cursive;
-  font-size: 40px;
+  font-size: 50px;
+  animation-name: rainbowl;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
+
+
 h2{
   text-transform: capitalize;
   margin: 40px auto;
@@ -20,20 +25,44 @@ h2{
   background-color: white;
   height: 350px;
 	width: 550px;
+  animation-name: rainbowl;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
 h3{
+
   font-family: 'Odibee Sans', cursive;
   font-size: 30px;
   margin-top: 20px;
+  animation-name: rainbowl;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
 }
 h4{
   margin: auto 30%;
   font-family: 'Odibee Sans', cursive;
   font-size: 30px;
 }
+@keyframes rainbowl{
+  15%{color: violet;}
+  30%{color: indigo;}
+  45%{color: blue;}
+  60%{color: green; }
+  75%{color: yellow;}
+  87%{color: orange;}
+  100%{color: red;}
+}
+@keyframes transparent {
+  0%{opacity: 0.1}
+  50%{opacity: 1}
+  100%{opacity: 0.1}
+}
 img{
   width: 50%;
   margin: 20px auto;
+  animation-name: transparent;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
 }
 #start-button, #redo-button{
   display: block;
@@ -43,9 +72,29 @@ img{
   font-family: 'Odibee Sans',cursive;
   margin: 0px auto;
 }
+@keyframes shake {
+  0%{transform: rotate(15deg);}
+  50%{transform: rotate(0deg);}
+  100%{transform: rotate(-15deg);}
+}
+#start-button:hover{
+  background-color: red;
+  color: white;
+  animation-name: shake;
+  animation-iteration-count: infinite;
+  animation-duration: 0.2s
+}
+#redo-button:hover,.close-button:hover{
+  background-color: green;
+  color: white;
+  animation-name: shake;
+  animation-iteration-count: infinite;
+  animation-duration: 0.2s
+}
 #redo-button {
   display: none;
   margin: 20px auto;
+
 }
 .close-button{
 
@@ -56,7 +105,9 @@ img{
   margin: 20px auto;
 }
 body{
+
   text-align: center;
+  background-color: silver;
 }
 header{
   text-align: center;
@@ -66,11 +117,11 @@ header{
   background-position: center;
 }
 .quiz-section{
+  padding: 20px auto;
   display: block;
-  margin: 40px auto;
-  border: 0.1em solid black;
-  margin: 20px 25%;
-  background-color: silver;
+  margin: 40px 25%;
+  border: 0.1em solid gray;
+  background-color: PeachPuff;
 
 }
 .answer-section{
@@ -95,6 +146,10 @@ header{
 }
 .answer-section button:hover, .next-button:hover{
   font-size: 25px;
+  background-color: yellow;
+  animation-name: shake;
+  animation-iteration-count: infinite;
+  animation-duration: 0.2s
 }
 .modal{
   background-color: rgba(0,0,0,0.4);

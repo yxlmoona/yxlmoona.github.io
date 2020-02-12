@@ -69,20 +69,25 @@ $(() => {
       $button.on('click', () => {
         // $('h4').empty()
         $('.answer-section>button').css('pointer-events','none')
-        $(event.currentTarget).css('pointer-events','visible')
+        // $(event.currentTarget).css('pointer-events','visible')
         $('.next-button').remove()
         const $h4 = $('<h4>')
         if(data[i-1].answers[x].correct === true){
           $(event.currentTarget).css('border','0.3em solid green')
+          .css('background-color','green')
+          .css('color','white')
           $h4.text('Correct')
           $h4.css('background-color','green')
           score = score + 1;
         }else{
           let b = 0
           $(event.currentTarget).css('border','0.3em solid red')
+          .css('background-color','red')
+          .css('color','white')
           while(data[i-1].answers[b].correct !== true){
             b++
           }
+          
           $h4.css('background-color','red')
           $h4.text('Incorrect.The correct answer is ' + data[i-1].answers[b].text)
         }
