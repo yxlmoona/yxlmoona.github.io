@@ -55,7 +55,8 @@ let score = 0;
 $(() => {
   let i = 0
   const showQuiz = () => {
-    $('#redo-button').css('display','block')
+    $('.quiz-section').show()
+    $('#redo-button').show()
     $('h4').empty()
     const $questionDiv = $('<div>').addClass('question')
     const $h3 = $('<h3>').html(data[i].text);
@@ -87,7 +88,7 @@ $(() => {
           while(data[i-1].answers[b].correct !== true){
             b++
           }
-          
+
           $h4.css('background-color','red')
           $h4.text('Incorrect.The correct answer is ' + data[i-1].answers[b].text)
         }
