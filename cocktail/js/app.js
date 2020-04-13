@@ -1,21 +1,18 @@
 
 //onload function
 $(() => {
+  // when you click random show info
   $('#random').on('click', (event) => {
     $('h6').empty()
     $('.cocktail-imgs').empty()
     $('.carousel-button').css('display','block')
     $('h2').css('display','none')
-
-
     $.ajax({
       url:'https://www.thecocktaildb.com/api/json/v1/1/random.php'
     }).then(
       (data) => {
         const EventHandlers = {
-
           showInstruction: () => {
-
             $('h2').css('display','block')
             const $h1 = $('<h6>').text(data.drinks[0].strIngredient1)
             const $h2 = $('<h6>').text(data.drinks[0].strIngredient2)
@@ -28,14 +25,13 @@ $(() => {
             // console.log(data.drinks[0].strInstructions)
           }
         }
-        console.log(data);
+        // console.log(data);
         const $div = $('<div>').addClass('search-imgs')
         $div.appendTo($('.cocktail-imgs'))
         const $img = $('<img>').attr('src',data.drinks[0].strDrinkThumb)
         $img.appendTo($div)
         const $h3 = $('<h3>').text(data.drinks[0].strDrink)
         $h3.appendTo($div)
-
         $('.cocktail-imgs img').on('click', EventHandlers.showInstruction)
       },
       () => {
@@ -43,6 +39,7 @@ $(() => {
       }
     )
   })//close click random
+  //when you click random search
   $('#search').on('click', () => {
     $('h2').css('display','none')
     $('.carousel-button').css('display','block')
@@ -56,9 +53,8 @@ $(() => {
         url:`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userInput}`
     }).then(
         (data)=>{
-
+          // carousel flip images
           const EventHandlers = {
-
             onClickFlipNext: () => {
               // console.log(currentImgIndex);
               $('.cocktail-imgs').children().eq(currentImgIndex).css('display','none')
@@ -68,7 +64,6 @@ $(() => {
                 currentImgIndex = 0;
               }
               $('.cocktail-imgs').children().eq(currentImgIndex).css('display','block')
-
             },
             onClickFlipPrevious: () => {
               $('.cocktail-imgs').children().eq(currentImgIndex).css('display','none')
@@ -79,8 +74,8 @@ $(() => {
               }
               $('.cocktail-imgs').children().eq(currentImgIndex).css('display','block')
             },
-
           }//close for EventHandlers
+            
             data.drinks.forEach((i) => {
                 const showInstruction = () => {
                 console.log(i);
