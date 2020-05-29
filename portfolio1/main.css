@@ -6,147 +6,280 @@
 
 }
 body{
-  background-color: rgb(245, 245, 220,0.3);
+  background-color: rgb(255, 255, 255);
 }
 .header-img{
-  filter: blur(3px);
+  /* filter: blur(3px); */
   width: 100vw;
-  height: 50vh;
+  height: 100vh;
   background-position: center;
-  background-image: url("image/header.jpg");
+  background-image: url("image/bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 
 }
-.header-color{
-  width: 100vw;
-  height: 50vh;
-  position: absolute;
-  background-color: rgba(251, 88, 62, 0.6);
-  z-index: 2;
-}
+
 .header-text{
   color: white;
   position: absolute;
-  top: 25%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
   width: 80%;
   padding: 20px;
   text-align: center;
+
 }
 .header-text >h1{
   color: white;
   margin-top: 50px;
   text-align: center;
+  font-size: 7vw;
 }
-h1{
+.header-text >p{
+  color: white;
+
+  font-size: 4vw;
+}
+.header-text span{
+  color: hotpink;
+
+}
+#nav-div{
+  overflow: hidden;
+  background-color: rgb(46,48,78);
+  border-bottom: 0.3em solid hotpink;
+  z-index: 2;
+}
+#nav-div a {
+
+  float:left;
+  display: block;
+  color: white;
+  text-align: center;
+  margin: 0 50px;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 15px;
+
+}
+#nav-div a:hover{
+  background-color: hotpink;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+main h1{
+  font-family: impact, fantasy;
   margin-top: 5vh;
   margin-bottom: 5vh;
   text-align: center;
-  color:rgb(251, 88, 62)
-}
-h3{
-  margin-bottom: 20px;
-}
-h4{
-  margin-top: 2vh;
-  color:rgb(251, 88, 62);
+  color: rgb(46,48,78);
+  font-size: 40px;
+  letter-spacing: 3px;
+
 
 }
-h4:hover{
-  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(251, 88, 62,1), rgba(255,0,0,0));
-  color:white;
-
+main h1 >div{
+  border-bottom: 0.1em solid rgb(46,48,78);
+  width: 60px;
+  margin: 10px auto;
 }
-.nav-div{
+
+.strength{
   display: flex;
   justify-content: space-around;
-  margin: 40px 50px;
+  flex-wrap: wrap;
+  margin: 20px auto;
+
+  /* border: 0.1em solid red; */
 
 }
-.nav-col{
-  display: flex;
-  flex-direction: column;
+.strength img{
+  width: 100px;
+  height: 15vh;
+  margin: 10px;
+  /* border: 0.1em solid red; */
+
+}
+.strength div{
   text-align: center;
+  margin: 20px;
+  width: 200px;
+
 }
-.nav-div img{
-  width: 80px;
-  height: 10vh;
-  margin: 10px;
+.strength div h2{
+  font-family: impact, fantasy;
+
+  color: rgb(46,48,78);
+  margin: 10px auto;
 }
-.about-me{
+.intro{
+  margin: 20px auto;
   display: flex;
   justify-content: space-around;
-  margin: 6vh 10vw;
 }
-.about-me>img{
-  width: 300px;
-  height: 40vh;
-  margin-right: 10vw;
-  box-shadow: 5px 10px rgba(251, 88, 62, 0.2);
-  border-radius: 10%;
+.intro-self{
+  text-align: center;
+
+}
+.intro-self img{
+  width:150px;
+  height: 150px;
+  margin-bottom: 20px;
+
+}
+.intro-self p{
+  width:250px;
+
+
+
 }
 
-.logos img, .project-content img{
-  width:30px;
+.intro-skill .top-skill{
+  width: 45vw;
   height: 30px;
-  margin: 10px 10px;
-
-
+  /* border: 0.1em solid red; */
+  margin: 20px auto;
+  background-color: rgb(127,207,250);
 }
-.project-content-logo{
+.middle-skill{
+  width: 40vw;
+  height: 30px;
+  /* border: 0.1em solid red; */
+  margin: 20px 0px;
+  background-color: rgb(127,207,250);
+}
+.low-skill{
+  width: 35vw;
+  height: 30px;
+  /* border: 0.1em solid red; */
+  margin: 20px 0px;
+  background-color: rgb(127,207,250);
+}
+.intro-skill p{
+  background-color: hotpink;
+  width: 12vw;
+  height: 30px;
+  text-align: center;
+  padding-top: 4px;
+  color: white;
+  font-weight: bolder;
+}
+
+
+.projects{
   display: flex;
-  justify-content: flex-start;
-}
-.project-content-logo a {
-  width: 30px;
-  height: 30px;
-  margin: 10px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 40px 20px;
 }
 .project{
-  display: flex;
-  justify-content: space-around;
-  margin: 6vh 10vw;
-}
+  width: 350px;
+  height: 50vh;
+  position: relative;
 
-.project>img{
+}
+.project img:hover{
+  opacity: 0;
+}
+.project img{
   width: 350px;
   height: 40vh;
-  box-shadow: 5px 10px rgba(251, 88, 62, 0.2);
+  position: absolute;
+
+  /* border: 0.1em solid red; */
 
 }
+
+/* .project-content:hover{
+  opacity: 1;
+} */
 .project-content{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 3vh 10vw;
+  padding: 10vh 10vw;
+  text-align: center;
+  /* opacity: 0; */
+  width: 350px;
+  height: 40vh;
+
+}
+.project-content h3{
+  font-size: 20px;
+  font-family: impact, fantasy;
+  margin: 10px auto;
+  color: rgb(46,48,78);
+
+
+}
+.project-content p{
+
+  margin: 10px auto;
+  color: hotpink;
+  text-align: center;
+
+}
+.project-content div>p{
+  padding-top: 2px;
+  color: rgb(46,48,78);
+  border: 0.1em solid hotpink;
+  width: 15vw;
+  height: 30px;
+}
+.project-content>div{
+
+  margin: 10px auto;
 }
 
-.resume img{
-  border: 0.1em solid black;
-  box-shadow: 5px 10px rgba(251, 88, 62, 0.2);
-  margin: 20px auto;
-  width: 80vw;
-  height: 90vh;
-}
 
 a{
   text-decoration: none;
-}
-li{
-  list-style-position: inside;
-}
-#github{
-  width: 10vw;
-  height: 8vh;
-}
-#sticky{
-  position: sticky;
-  top: 0;
-  background-color: rgba(251, 88, 62, 0.2);
-  padding: 20px 0px;
-  border-radius: 10%;
 
+}
+.blogs{
+  display: flex;
+  justify-content: space-around;
+  height: 90vh;
+}
+.blog{
+  width: 400px;
+  height: 40vh;
+}
+.blog img{
+  width: 350px;
+  height: 40vh;
+  margin: 30px auto;
+}
+.blog h3{
+  color: rgb(46,48,78);
+  margin-bottom: 10px;
+}
+.blog div{
+  width: 120px;
+  height: 10px;
+  border-bottom: 0.1em solid hotpink;
+  margin: 10px;
+
+}
+.blog p{
+  color: gray;
+  margin: 10px;
+
+}
+footer{
+  background-color: rgb(46,48,78);
+  margin: 20px auto;
+
+
+}
+footer h3, footer p{
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+footer a{
+  color: white;
 }
